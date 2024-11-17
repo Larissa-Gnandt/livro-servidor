@@ -6,10 +6,10 @@ const banco = "mongodb://localhost:27017/livraria";
 mongoose
   .connect(banco, options)
   .then(() => {
-    console.log("Conexão com o MongoDB realizada com sucesso");
+       return "Conexão com o MongoDB realizada com sucesso"
   })
   .catch((error) => {
-    console.error("Erro ao conectar ao MongoDB:", error);
+    throw new Error(`Erro ao conectar ao MongoDB: ${error.message}`);
   });
 
 module.exports = mongoose;
