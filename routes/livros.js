@@ -1,13 +1,10 @@
-// Importa as bibliotecas e funções necessárias
 const express = require('express');
 const router = express.Router();
-const livroDao = require('../modelo/livro-dao'); // Ajuste o caminho para o arquivo do DAO
+const livroDao = require('../modelo/livro-dao'); 
 
-// Funções do livro-dao
 const { obterLivros, incluir, excluir } = livroDao;
 
-// Rota GET para obter todos os livros
-router.get('/', async (req, res) => {
+router.get('/', async (res) => {
     try {
       const livros = await obterLivros();
       res.json(livros);
@@ -16,7 +13,6 @@ router.get('/', async (req, res) => {
     }
   });
 
-  // Rota POST para adicionar um novo livro
 router.post('/', async (req, res) => {
     const novoLivro = req.body;
     try {
@@ -27,7 +23,6 @@ router.post('/', async (req, res) => {
     }
   });
 
-  // Rota DELETE para excluir um livro por ID
 router.delete('/:_id', async (req, res) => {
     const { _id } = req.params;
     try {
