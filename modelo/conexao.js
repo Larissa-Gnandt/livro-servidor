@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 const options = { useUnifiedTopology: true, useNewUrlParser: true };
 
-// URL do MongoDB
-const banco = "mongodb://localhost:27017/livraria"; // substitua "nomeDoBanco" pelo nome do seu banco
+const banco = "mongodb://localhost:27017/livraria"; 
 
-// Efetua a conexão com o MongoDB
 mongoose
   .connect(banco, options)
   .then(() => {
@@ -14,5 +12,4 @@ mongoose
     console.error("Erro ao conectar ao MongoDB:", error);
   });
 
-// Exporta o mongoose para uso em outros arquivos
 module.exports = mongoose;

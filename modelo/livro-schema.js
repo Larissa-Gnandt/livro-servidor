@@ -1,18 +1,16 @@
-const banco = require("./conexao"); // Importa o banco da conexão.js
+const banco = require("./conexao");
 
-// Define a estrutura do schema para a coleção 'livros'
 const LivroSchema = new banco.Schema({
-  _id: { type: String },
   titulo: {
     type: String,
-    required: true, // Define como obrigatório
+    required: true, 
   },
   codEditora: {
     type: Number,
-    required: true, // Define como obrigatório
+    required: true, 
   },
   resumo: String,
-  autorres: [String], // Array de strings
+  autorres: [String],
 });
 
 const Livro = banco.model('Livro', LivroSchema);
