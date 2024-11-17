@@ -1,5 +1,4 @@
-// Importa a conexão do banco de dados (mongoose)
-const banco = require("./conexao"); // Importa o mongoose da conexão.js
+const banco = require("./conexao"); // Importa o banco da conexão.js
 
 // Define a estrutura do schema para a coleção 'livros'
 const LivroSchema = new banco.Schema({
@@ -16,5 +15,6 @@ const LivroSchema = new banco.Schema({
   autorres: [String], // Array de strings
 });
 
-// Cria o modelo 'Livro' baseado no LivroSchema
-module.exports = banco.model("Livro", LivroSchema, "livros");
+const Livro = banco.model('Livro', LivroSchema);
+
+module.exports = Livro;

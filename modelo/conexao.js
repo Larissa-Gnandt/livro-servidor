@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const options = { useUnifiedTopology: true, useNewUrlParser: true };
 
 // URL do MongoDB
-const banco = "mongodb://localhost:27017/nomeDoBanco"; // substitua "nomeDoBanco" pelo nome do seu banco
+const banco = "mongodb://localhost:27017/livraria"; // substitua "nomeDoBanco" pelo nome do seu banco
 
 // Efetua a conexão com o MongoDB
 mongoose
