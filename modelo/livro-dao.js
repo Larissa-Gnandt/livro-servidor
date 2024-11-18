@@ -4,6 +4,9 @@ const obterLivros = async () => {
   try {
     const livros = await Livro.find();
 
+console.log(livros);
+
+
     const livrosFormatados = livros.map(livro => {
       livro.codigo = livro._id.toString();  
       return livro;

@@ -4,11 +4,13 @@ const livroDao = require('../modelo/livro-dao');
 
 const { obterLivros, incluir, excluir } = livroDao;
 
-router.get('/', async (res) => {
+router.get('/', async (_, res) => {
     try {
       const livros = await obterLivros();
       res.json(livros);
     } catch (error) {
+      console.log(error);
+      
       res.status(500).json({ mensagem: 'Erro ao obter os livros' });
     }
   });
