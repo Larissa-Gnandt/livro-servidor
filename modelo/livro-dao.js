@@ -4,11 +4,10 @@ const obterLivros = async () => {
   try {
     const livros = await Livro.find();
 
-console.log(livros);
+    console.log(livros);
 
-
-    const livrosFormatados = livros.map(livro => {
-      livro.codigo = livro._id.toString();  
+    const livrosFormatados = livros.map((livro) => {
+      livro.codigo = livro._id.toString();
       return livro;
     });
     return livrosFormatados;
@@ -20,8 +19,7 @@ console.log(livros);
 const incluir = async (livro) => {
   try {
     const novoLivro = await Livro.create({
-      ...livro,  
-      codigo: livro.codigo.toString() 
+      ...livro,
     });
     return novoLivro;
   } catch (error) {
@@ -29,14 +27,12 @@ const incluir = async (livro) => {
   }
 };
 
-
 const excluir = async (codigo) => {
   try {
     const resultado = await Livro.deleteOne({ _id: codigo });
     return resultado;
   } catch (error) {
     throw new Error(`Erro ao excluir livro: ${error.message}`);
-  
   }
 };
 
