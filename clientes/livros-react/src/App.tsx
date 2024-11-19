@@ -8,24 +8,42 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Links para navegar entre as rotas */}
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Listagem de Livros</Link> {/* Link para a rota da listagem */}
-            </li>
-            <li>
-              <Link to="/livro-dados">Incluir Livro</Link> {/* Link para a rota de inclusão */}
-            </li>
-          </ul>
+        {/* Navegação */}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a className="navbar-brand" href="#">
+            Biblioteca
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Alterna navegação"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              {/* Links usando o componente <Link> */}
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  Livros
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/livro-dados">
+                  Cadastro
+                </Link>
+              </li>
+            </ul>
+          </div>
         </nav>
 
         {/* Definição das rotas */}
         <Routes>
-          {/* Exibe a lista de livros na rota raiz ("/") */}
           <Route path="/" element={<LivroLista />} />
-
-          {/* Exibe o formulário de inclusão de livro na rota "/livro-dados" */}
           <Route path="/livro-dados" element={<LivroDados />} />
         </Routes>
       </div>
