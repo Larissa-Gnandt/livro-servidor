@@ -4,6 +4,7 @@ import ControleLivro from "./controle/ControleLivros";
 import ControleEditora from "./controle/ControleEditora";
 import Livro from "./modelo/Livro";
 import React from "react";
+import "./LivroDados.css";
 
 const LivroDados = () => {
   const controleLivro = new ControleLivro();
@@ -46,40 +47,43 @@ const LivroDados = () => {
       <h1>Dados do Livro</h1>
       <form onSubmit={incluir}>
         {/* Campo Título */}
-        <div>
-          <label>Título:</label>
+        <div className="mb-3 d-flex align-items-center">
+          <label for="titulo" class="form-label me-3">Título</label>
           <input
             type="text"
             value={titulo}
             onChange={(e) => setTitulo(e.target.value)}
             required
+            class="form-control input-grande" id="titulo"
           />
         </div>
 
         {/* Campo Resumo */}
-        <div>
-          <label>Resumo:</label>
+        <div className="mb-3 d-flex align-items-center">
+          <label for="resumo" class="form-label me-3">Resumo</label>
           <textarea
             value={resumo}
             onChange={(e) => setResumo(e.target.value)}
             required
+            class="form-control input-grande" id="resumo" 
           />
         </div>
 
         {/* Campo Autores */}
-        <div>
-          <label>Autores (separados por linha):</label>
+        <div className="mb-3 d-flex align-items-center">
+          <label for="autores" className="form-label me-3">Autores (separados por linha)</label>
           <textarea
             value={autores}
             onChange={(e) => setAutores(e.target.value)}
             required
+            class="form-control input-grande" id="autores"
           />
         </div>
 
         {/* Combo de Editoras */}
-        <div>
-          <label>Editora:</label>
-          <select value={codEditora} onChange={tratarCombo}>
+        <div className="mb-3 d-flex align-items-center">
+          <label for="editora" className="form-label me-3">Editora</label>
+          <select className="form-select input-grande" id="editora" value={codEditora} onChange={tratarCombo}>
             {opcoes.map((opcao) => (
               <option key={opcao.value} value={opcao.value}>
                 {opcao.text}
