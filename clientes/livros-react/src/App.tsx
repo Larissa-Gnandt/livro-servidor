@@ -29,12 +29,12 @@ function App() {
               {/* Links usando o componente <Link> */}
               <li className="nav-item">
                 <Link className="nav-link" to="/">
-                  Livros
+                  Catálogo
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/livro-dados">
-                  Cadastro
+                  Novo
                 </Link>
               </li>
             </ul>

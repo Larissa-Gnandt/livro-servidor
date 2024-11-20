@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import ControleLivro from "./controle/ControleLivros"; 
-import ControleEditora from "./controle/ControleEditora"; 
+import ControleLivro from "./controle/ControleLivros";
+import ControleEditora from "./controle/ControleEditora";
 import React from "react";
+import "./LivroLista.css";
 
 const controleLivro = new ControleLivro();
 const controleEditora = new ControleEditora();
@@ -9,7 +10,6 @@ const controleEditora = new ControleEditora();
 const LinhaLivro = (props) => {
   const { livro, excluir } = props;
 
-  
   const nomeEditora = controleEditora.getNomeEditora(livro.codEditora);
 
   return (
@@ -37,14 +37,9 @@ const LivroLista = () => {
 
   useEffect(() => {
     if (!carregado) {
-      //console.log(controleLivro);
-      
-
       controleLivro
-        .obterLivros()  
+        .obterLivros()
         .then((livrosObtidos) => {
-        //  console.log(livrosObtidos);
-          
           setLivros(livrosObtidos);
           setCarregado(true);
         })
@@ -56,9 +51,9 @@ const LivroLista = () => {
 
   const excluir = (codigo) => {
     controleLivro
-      .excluir(codigo) 
+      .excluir(codigo)
       .then(() => {
-        setCarregado(false); 
+        setCarregado(false);
       })
       .catch((error) => {
         console.error("Erro ao excluir livro:", error);
@@ -67,7 +62,7 @@ const LivroLista = () => {
 
   return (
     <main>
-      <h1>Lista de Livros</h1>
+      <h1>Catálogo de Livros</h1>
       <table>
         <thead>
           <tr>
@@ -80,10 +75,10 @@ const LivroLista = () => {
         <tbody>
           {livros.map((livro, index) => (
             <LinhaLivro
-              key={index}  
+              key={index}
               livro={livro}
               excluir={excluir}
-              index={index} 
+              index={index}
             />
           ))}
         </tbody>

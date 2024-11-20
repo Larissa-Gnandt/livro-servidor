@@ -43,7 +43,7 @@ const LivroDados = () => {
 
   return (
     <main>
-      <h1>Incluir Novo Livro</h1>
+      <h1>Dados do Livro</h1>
       <form onSubmit={incluir}>
         {/* Campo Título */}
         <div>
